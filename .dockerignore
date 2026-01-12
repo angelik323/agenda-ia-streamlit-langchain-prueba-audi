@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.env
+
+# Streamlit secrets (handled via volume in compose)
+.streamlit/secrets.toml
+
+# Local data (handled via volume in compose)
+agenda_audi.xlsx
+
+# Logs
+*.log
+
+# Git
+.git
+.gitignore
+
+# Poetry
+.poetry.lock

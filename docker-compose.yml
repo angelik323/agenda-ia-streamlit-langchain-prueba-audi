@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  agenda-audi:
+    build: .
+    container_name: agenda-audi-app
+    ports:
+      - "8501:8501"
+    volumes:
+      # Persistencia de la agenda
+      - ./agenda_audi.xlsx:/app/agenda_audi.xlsx
+      # Manejo de secretos
+      - ./.streamlit:/app/.streamlit
+      # Logs persistentes
+      - ./app.log:/app/app.log
+    restart: always
