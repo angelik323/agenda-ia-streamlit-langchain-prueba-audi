@@ -10,10 +10,16 @@ ENV PYTHONFAULTHANDLER=1 \
     POETRY_VERSION=1.7.1 \
     POETRY_VIRTUALENVS_CREATE=false \
     POETRY_CACHE_DIR='/var/cache/pypoetry' \
-    POETRY_HOME='/usr/local'
+    POETRY_HOME='/usr/local' \
+    POETRY_HTTP_TIMEOUT=600
 
-# Install poetry
-RUN apt-get update && apt-get install -y curl && \
+# Install poetry and build dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    build-essential \
+    python3-dev \
+    gcc \
+    g++ && \
     curl -sSL https://install.python-poetry.org | python3 - && \
     apt-get purge -y --auto-remove curl && \
     rm -rf /var/lib/apt/lists/*
