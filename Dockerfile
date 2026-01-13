@@ -11,7 +11,8 @@ ENV PYTHONFAULTHANDLER=1 \
     POETRY_VIRTUALENVS_CREATE=false \
     POETRY_CACHE_DIR='/var/cache/pypoetry' \
     POETRY_HOME='/usr/local' \
-    POETRY_HTTP_TIMEOUT=600
+    POETRY_HTTP_TIMEOUT=600 \
+    PYTHONPATH=/app
 
 # Install poetry and build dependencies
 RUN apt-get update && apt-get install -y \
